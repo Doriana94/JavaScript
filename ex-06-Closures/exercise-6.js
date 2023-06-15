@@ -7,4 +7,4 @@ function printName() {
     return inner;
 }
 
-console.log(printName() ());
+console.log(printName()());
