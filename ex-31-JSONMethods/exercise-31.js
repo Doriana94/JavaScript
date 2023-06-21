@@ -1,0 +1,19 @@
+const person1 = {
+  id: 1,
+  firstName: 'Mario',
+  lastName: 'Rossi',
+  age: 25,
+  address: {
+    state: 'Italy',
+    city: 'Rome',
+    street: 'Via Romano, 12'
+  }
+};
+
+const person2 = { ...person1 };
+person2.address.city = 'Milan';
+person1.address = 'Rome';
+
+
+console.log(person1);
+console.log(person2);
