@@ -1,7 +1,6 @@
 let numberStore = [0, 1, 2];
 let newNumber = 3;
 
-let merged = [numberStore, newNumber];
+let merged = numberStore.concat(newNumber);
 
-numberStore.push(newNumber);
-console.log(numberStore);
+console.log(merged);
