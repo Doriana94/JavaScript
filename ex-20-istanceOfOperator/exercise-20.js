@@ -41,6 +41,6 @@ const square = new Square(4);
 const rectangle = new Rectangle(4, 2);
 const circle = new Circle(5);
 
-console.log(new AreaCalculator(square));
-console.log( new AreaCalculator(rectangle));
-console.log(new AreaCalculator(circle));
+console.log(square instanceof Square);
+console.log(rectangle instanceof Rectangle);
+console.log(circle instanceof Circle);
