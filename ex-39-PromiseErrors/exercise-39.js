@@ -1,6 +1,6 @@
 class CustomError extends Error{
-    constructor(params) {
-        super(params);
+    constructor(name) {
+        super(name);
         this.name = 'CustomError';
     }
 }
@@ -29,26 +29,30 @@ function user(number) {
     });
   }
 
-
+try {
 login(true)
-.then((randomNumber)=>{
+ .then((randomNumber) => {
     console.log('Locked in successfully!');
     console.log('RandomNumber:', randomNumber);
     return user(randomNumber);
 })
-.catch((error) =>{
+.then((userObject) =>{
+  console.log('User object:', userObject);
+})
+.catch ((error) => {
    if (error instanceof CustomError) {
     console.log('Custom Error:', error.message);
    } else {
     console.log('Unknow Error:', error);
    }
-})
-.then((userObject) =>{
-    console.log('User object:', userObject);
-})
-.catch((error) => {
-    console.log('Unhandled Error:', error);
-})
-.finally(() => {
+  })
+  .finally (() => {
     console.log('Process completed');
-})
+  });
+} catch (error) {
+  console.log('Unhandled Error:', error);
+}
+
+  
+
+
