@@ -17,30 +17,24 @@ class Circle {
   }
 }
 
-class  AreaCalculator {
-  constructor(area) {
-    this.area = area;
+class AreaCalculator {
+  static calculate(figure) {
+    if (figure instanceof Square) {
+      return figure.side * figure.side;
+    } else if (figure instanceof Rectangle) {
+      return figure.width * figure.height;
+    } else if (figure instanceof Circle) {
+      return Math.PI * figure.radius * figure.radius;
+    } else {
+      throw new Error('Invalid figure type');
+    }
   }
-
-  static Area (side) {
-    return side * side;
-   }
-
-  static Area (width, height) {
-    return width * height;
-   }
-
-  static Area (radius) {
-  return Math.PI * radius;
-  }
-
-
 }
 
 const square = new Square(4);
 const rectangle = new Rectangle(4, 2);
 const circle = new Circle(5);
 
-console.log(square instanceof Square);
-console.log(rectangle instanceof Rectangle);
-console.log(circle instanceof Circle);
+console.log(AreaCalculator.calculate(square));     
+console.log(AreaCalculator.calculate(rectangle));  
+console.log(AreaCalculator.calculate(circle));  
